@@ -1,0 +1,22 @@
+
+
+
+<table border="2" >
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>Price</th>
+   
+    </tr>
+    <tr *ngFor="let p of parr">
+        <td>{{p.pid}}</td><td>{{p.pname}}</td>
+       
+        <td>{{p.price}}</td>
+        <td><a (click)='deleteProduct(p)'>delete</a></td>
+        <td><a (click)='udateProduct(p)'>edit</a></td>
+</tr>
+</table>
+<button type="button" name="btn" (click)="displayProduct()">Add Product</button>
+<div *ngIf="flag">
+<pform [uprod]="ob" (myevent)="flag=$event"></pform>
+</div>

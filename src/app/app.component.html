@@ -1,0 +1,24 @@
+<h1>CrudProductApplication app is running!</h1>
+ <h1>CrudProductApplication app is running!</h1>
+<a routerLink="ptab">Display Table</a><br>
+<a routerLink="plist">Display list</a>
+<hr>
+<form #frm=ngForm (ngSubmit)="submitForm(frm.value) ">
+   Id: <input type="text" #id="ngModel" name="id" ngModel required><br>
+   <div *ngIf="id.errors && (id.dirty ||id.touched)">
+        Please Enetr Id it cant not be empty
+   </div>
+   Name: <input type="text" #name="ngModel" name="nm" ngModel required minlength="3"><br>
+   <div *ngIf="name.errors && (name.dirty ||name.touched)">
+       <div [hidden]="!name.errors.required">
+        Please Enetr name it cant not be empty
+       </div>
+       <div>
+        Please Enetr name it should greater than 3
+       </div>
+   </div>
+<button type="submit" name="btn1" [disabled]="!frm.valid" >Submit</button>
+</form>
+<p>{{id.value}}</p>
+<hr> 
+ <router-outlet></router-outlet> 
